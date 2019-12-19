@@ -30,12 +30,15 @@ public class Produit {
 	joinColumns=@JoinColumn(name="ID_PRODUIT", referencedColumnName="ID"),
 	inverseJoinColumns=@JoinColumn(name="ID_INGREDIENT", referencedColumnName="ID"))
 	private List<Ingredient> ingredients= new ArrayList<Ingredient>();
+	
+	@ManyToMany
+	@JoinTable(name="ID_ALLERGENE_ID_PRODUIT",
+	joinColumns=@JoinColumn(name="ID_PRODUIT", referencedColumnName="ID"),
+	inverseJoinColumns=@JoinColumn(name="ID_ALLERGENE", referencedColumnName="ID"))
+	private List<Allergene> allergenes= new ArrayList<Allergene>();
 
 	@Column(name ="SCORE_NUT")
 	private String scoreNutritionnel;
-	
-	public Produit(){}
-	
 	
 	private double energie100g;
 	private double graisse100g;
@@ -62,6 +65,81 @@ public class Produit {
 	private double betaCarotene100g;
 	private boolean presenceHuilePalme;
 	private double pourcentageFruitsLegumes100g;
+	
+	public Produit(){}
+	
+	
+	
+	
+	/**
+	 * @param nom
+	 * @param scoreNutritionnel
+	 * @param energie100g
+	 * @param graisse100g
+	 * @param graisseSaturee100g
+	 * @param hydratesCarbones100g
+	 * @param sucres100g
+	 * @param fibres100g
+	 * @param proteines100g
+	 * @param sel100g
+	 * @param vitA100g
+	 * @param vitD100g
+	 * @param vitE100g
+	 * @param vitK100g
+	 * @param vitC100g
+	 * @param vitB1100g
+	 * @param vitB2100g
+	 * @param vitPP100g
+	 * @param vitB6100g
+	 * @param vitB9100g
+	 * @param vitB12100g
+	 * @param calcium100g
+	 * @param magnesium100g
+	 * @param fer100g
+	 * @param betaCarotene100g
+	 * @param presenceHuilePalme
+	 * @param pourcentageFruitsLegumes100g
+	 */
+	public Produit(String nom, String scoreNutritionnel, double energie100g, double graisse100g,
+			double graisseSaturee100g, double hydratesCarbones100g, double sucres100g, double fibres100g,
+			double proteines100g, double sel100g, double vitA100g, double vitD100g, double vitE100g, double vitK100g,
+			double vitC100g, double vitB1100g, double vitB2100g, double vitPP100g, double vitB6100g, double vitB9100g,
+			double vitB12100g, double calcium100g, double magnesium100g, double fer100g, double betaCarotene100g,
+			boolean presenceHuilePalme, double pourcentageFruitsLegumes100g) {
+		super();
+		this.nom = nom;
+		this.scoreNutritionnel = scoreNutritionnel;
+		this.energie100g = energie100g;
+		this.graisse100g = graisse100g;
+		this.graisseSaturee100g = graisseSaturee100g;
+		this.hydratesCarbones100g = hydratesCarbones100g;
+		this.sucres100g = sucres100g;
+		this.fibres100g = fibres100g;
+		this.proteines100g = proteines100g;
+		this.sel100g = sel100g;
+		this.vitA100g = vitA100g;
+		this.vitD100g = vitD100g;
+		this.vitE100g = vitE100g;
+		this.vitK100g = vitK100g;
+		this.vitC100g = vitC100g;
+		this.vitB1100g = vitB1100g;
+		this.vitB2100g = vitB2100g;
+		this.vitPP100g = vitPP100g;
+		this.vitB6100g = vitB6100g;
+		this.vitB9100g = vitB9100g;
+		this.vitB12100g = vitB12100g;
+		this.calcium100g = calcium100g;
+		this.magnesium100g = magnesium100g;
+		this.fer100g = fer100g;
+		this.betaCarotene100g = betaCarotene100g;
+		this.presenceHuilePalme = presenceHuilePalme;
+		this.pourcentageFruitsLegumes100g = pourcentageFruitsLegumes100g;
+	}
+
+
+
+
+	
 
 	/** Getter
 	 * @return the id
@@ -434,6 +512,18 @@ public class Produit {
 	 */
 	public void setPourcentageFruitsLegumes100g(double pourcentageFruitsLegumes100g) {
 		this.pourcentageFruitsLegumes100g = pourcentageFruitsLegumes100g;
+	}
+	/** Getter
+	 * @return the allergenes
+	 */
+	public List<Allergene> getAllergenes() {
+		return allergenes;
+	}
+	/** Setter
+	 * @param allergenes the allergenes to set
+	 */
+	public void setAllergenes(List<Allergene> allergenes) {
+		this.allergenes = allergenes;
 	}
 	
 	

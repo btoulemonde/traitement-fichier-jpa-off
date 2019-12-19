@@ -7,8 +7,8 @@ import javax.persistence.*;
 
 
 
-@MappedSuperclass
-@Inheritance(strategy = InheritanceType.JOINED)
+@Entity
+@Table(name="INGREDIENT")
 public class Ingredient {
 	
 	@Id
@@ -25,6 +25,16 @@ public class Ingredient {
 	private List<Produit> produits= new ArrayList<Produit>();
 
 	public Ingredient(){}
+	
+
+	/**
+	 * @param nom
+	 */
+	public Ingredient(String nom) {
+		super();
+		this.nom = nom;
+	}
+
 
 	/** Getter
 	 * @return the id

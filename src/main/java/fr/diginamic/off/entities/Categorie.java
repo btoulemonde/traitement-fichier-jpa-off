@@ -20,6 +20,17 @@ public class Categorie {
 	private List<Produit> produits = new ArrayList<Produit>();
 
 	public Categorie(){}
+	
+
+	/**
+	 * @param nom
+	 */
+	public Categorie(String nom) {
+		super();
+		this.nom = nom;
+	}
+
+
 
 	/** Getter
 	 * @return the id

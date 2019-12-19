@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Table(name="ADDITIF")
 public class Additif {
 	
+	
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
@@ -14,6 +16,14 @@ public class Additif {
 	private String nom;
 	
 	public Additif(){}
+	
+	/**
+	 * @param nom
+	 */
+	public Additif(String nom) {
+		super();
+		this.nom = nom;
+	}
 
 	/** Getter
 	 * @return the id

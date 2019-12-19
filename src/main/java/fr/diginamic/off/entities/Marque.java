@@ -21,6 +21,14 @@ public class Marque {
 	
 	public Marque(){}
 
+	/**
+	 * @param nom
+	 */
+	public Marque(String nom) {
+		super();
+		this.nom = nom;
+	}
+
 	/** Getter
 	 * @return the id
 	 */
