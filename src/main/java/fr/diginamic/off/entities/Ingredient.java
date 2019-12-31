@@ -6,24 +6,34 @@ import java.util.List;
 import javax.persistence.*;
 
 
-
+/**
+ * @author bapti
+ *Classe permettant de creer la table ingredient dans la base de donnée
+ */
 @Entity
 @Table(name="INGREDIENT")
 public class Ingredient {
 	
+	/** ID généré automatiquement*/
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	
+	/** nom de l'ingredient de type String. Cet attribut génère une colonne dans la base de donnée*/
 	@Column(name="nom", length=255, nullable=true)
 	private String nom;
 	
+	/** Renvoi à la liste des produits concernés par un ingredient, creation d'une table de jointure */
 	@ManyToMany
 	@JoinTable(name="ID_INGREDIENT_ID_PRODUIT",
 	joinColumns=@JoinColumn(name="ID_INGREDIENT", referencedColumnName="ID"),
 	inverseJoinColumns=@JoinColumn(name="ID_PRODUIT", referencedColumnName="ID"))
 	private List<Produit> produits= new ArrayList<Produit>();
 
+
+	/**
+	 * Constructeur
+	 */
 	public Ingredient(){}
 	
 

@@ -5,17 +5,21 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class Dao {
-	private EntityManagerFactory emf = null;
-	private EntityManager em = null;
-	
-	   public void begin() {
-	      emf = Persistence.createEntityManagerFactory("open-food-facts");
-	      em = emf.createEntityManager();
-	   }
+	private static EntityManagerFactory emf = null;
+	private static EntityManager em = null;
 
-	   public void close() {
-	      if (em != null) {
-	         em.close();
-	      }
-	   }
+	public static EntityManager init() {
+		emf = Persistence.createEntityManagerFactory("open-food-facts");
+		return em = emf.createEntityManager();
+	}
+
+	public static void close() {
+		if (em != null) {
+			em.close();
+		}
+		if (emf != null) {
+			emf.close();
+		}
+	}
+
 }

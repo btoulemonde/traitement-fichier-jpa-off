@@ -4,17 +4,15 @@
 	version="2.1">
 	<persistence-unit name="open-food-facts" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<class>fr.diginamic.off.entities.Additif</class>
-		<class>fr.diginamic.off.entities.Allergene</class>
 		<class>fr.diginamic.off.entities.Categorie</class>
 		<class>fr.diginamic.off.entities.Ingredient</class>
 		<class>fr.diginamic.off.entities.Marque</class>
 		<class>fr.diginamic.off.entities.Produit</class>
 		<properties>
-			<!-- desactiver l'autodetection des classes de type @Entity -->
-			<property name="hibernate.archive.autodetection" value="" />
-			<!-- Activation de la génération des tables manquantes uniquement -->
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+	<!-- desactiver l'autodetection des classes de type @Entity -->
+	<property name="hibernate.archive.autodetection" value="" />
+	<!-- Activation de la génération des tables manquantes uniquement -->
+	<property name="hibernate.hbm2ddl.auto" value="update" />
 			<!-- Drop and create à chaque redémarrage -->
 			<property name="javax.persistence.schema-generation.database.action"
 				value="drop-and-create" />
